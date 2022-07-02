@@ -1,11 +1,16 @@
 const express = require('express');
 const bodyParser = require('body-parser'); 
-const dbConfig = require('./config/dbConfig')
+const dbConfig = require('./config/dbConfig');
+const mongoose = require('mongoose');
 
 
 const app = express();
 //const router = express.Router(); // router is depreceted, now is change it in line 13 also, we need app.post no router.post
-console.log(dbConfig);
+//console.log(dbConfig);
+// mongoose.connect('mongodb://localhost/my_database'); if we use database from localhost
+mongoose.connect(dbConfig.MONGODB_URL)
+.then(data => console.log('MONGO DB is conected.'))
+.catch(err => console.log(`Error while connecting to MONGO DB: ${err}`));
 
 
 // for parsing machine code in json 
