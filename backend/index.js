@@ -2,9 +2,11 @@ const express = require('express');
 const bodyParser = require('body-parser'); 
 const dbConfig = require('./config/dbConfig');
 const mongoose = require('mongoose');
+const Users = require('./models/userModel');
 
 
 const app = express();
+console.log(Users);
 //const router = express.Router(); // router is depreceted, now is change it in line 13 also, we need app.post no router.post
 //console.log(dbConfig);
 // mongoose.connect('mongodb://localhost/my_database'); if we use database from localhost

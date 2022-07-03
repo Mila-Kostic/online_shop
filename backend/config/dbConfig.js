@@ -1,5 +1,5 @@
 const MONGO_PASS = 'mongodb';
-const MONGODB_URL = 'mongodb+srv://Mila:${MONGO_PASS}<password>@cluster0.sc5vi.mongodb.net/?retryWrites=true&w=majority';
+const MONGODB_URL = `mongodb+srv://Mila:${MONGO_PASS}@cluster0.sc5vi.mongodb.net/?retryWrites=true&w=majority`;
 const mongooseOptions = {
     userNewUrlParser: true,
     useUnifiedTopology: true,
