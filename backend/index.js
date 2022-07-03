@@ -21,8 +21,14 @@ app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParser.json());
 
 app.post('/api/login', (req, res) => {
-  console.log(req.body);
+  //console.log(req.body);
   //req is requst from frontend, res is response from backend
+  const reqBody = req.body;
+  console.log(reqBody);
+
+//const foundUser = Users.findOne({username: reqBody.username, password: reqBody.password});
+const foundUser = Users.findOne(reqBody);
+console.log(foundUser);
   res.send('login API call is working.')
 });
 
