@@ -27,9 +27,20 @@ app.post('/api/login', (req, res) => {
   console.log(reqBody);
 
 //const foundUser = Users.findOne({username: reqBody.username, password: reqBody.password});
-const foundUser = Users.findOne(reqBody);
-console.log(foundUser);
-  res.send('login API call is working.')
+const foundUser = Users.findOne(reqBody,(err, data) => {
+  console.log(data);
+  if(err){
+    const errorMsg = `Error on geting user from DB: ${err}`;
+    console.log(errorMsg);
+      res.send(errorMsg);
+  } 
+  else{
+    res.send(data);
+
+  }
+});
+//console.log(foundUser);
+ // res.send('login API call is working.')
 });
 
 
