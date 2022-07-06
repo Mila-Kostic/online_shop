@@ -33,11 +33,25 @@ const foundUser = Users.findOne(reqBody,(err, data) => {
     const errorMsg = `Error on geting user from DB: ${err}`;
     console.log(errorMsg);
       res.send(errorMsg);
+      return;
   } 
-  else{
-    res.send(data);
 
-  }
+   //else{
+   // res.send(data);
+   //}
+  
+   // way 1
+   // if (data)
+  // res.send(data);
+  // else
+  // res.send('User not found.');
+  
+  // way 2
+  // res.send(data ? data : 'User not found.');
+  
+  // way 3
+  res.send(data || 'User not found.');
+
 });
 //console.log(foundUser);
  // res.send('login API call is working.')
