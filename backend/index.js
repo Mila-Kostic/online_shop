@@ -57,7 +57,12 @@ const foundUser = Users.findOne(reqBody,(err, data) => {
  // res.send('login API call is working.')
 });
 
+app.post('/api/register', (req, res) =>{
+ const reqBody = req.body;
+ console.log('reg user data:', reqBody);
 
+ res.send('Done');
+})
 
 
 //call back function-last function in program
