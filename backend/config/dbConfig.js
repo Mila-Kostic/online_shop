@@ -1,4 +1,4 @@
-const MONGO_PASS = 'mongodb';
+const MONGO_PASS = 'app1234';
 const MONGODB_URL = `mongodb+srv://Mila:${MONGO_PASS}@cluster0.sc5vi.mongodb.net/?retryWrites=true&w=majority`;
 const mongooseOptions = {
     userNewUrlParser: true,

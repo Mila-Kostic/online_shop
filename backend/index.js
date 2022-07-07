@@ -62,7 +62,8 @@ app.post('/api/register', (req, res) =>{
  console.log('reg user data:', reqBody);
 
 const newUser = new Users(reqBody);
-console.log('newUser');
+const saveNewUser = newUser.save();
+console.log(newUser);
  res.send('Done');
 })
 
