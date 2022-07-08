@@ -10,6 +10,8 @@ var mongoose = require('mongoose');
 
 var Users = require('./models/userModel');
 
+var serverConfig = require('./config/serverConfig.js');
+
 var app = express();
 console.log(Users); //const router = express.Router(); // router is depreceted, now is change it in line 13 also, we need app.post no router.post
 //console.log(dbConfig);
@@ -110,7 +112,7 @@ app.post('/api/register', function (req, res) {
   });
 }); //call back function-last function in program
 
-app.listen(4000, function (err) {
+app.listen(serverConfig.port, function (err) {
   if (err) {
     console.log(err);
   } else {

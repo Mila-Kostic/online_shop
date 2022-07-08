@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const dbConfig = require('./config/dbConfig');
 const mongoose = require('mongoose');
 const Users = require('./models/userModel');
+const serverConfig = require('./config/serverConfig.js');
 
 
 const app = express();
@@ -91,7 +92,7 @@ console.log(saveNewUser);
 
 
 //call back function-last function in program
-app.listen(4000, err => {
+app.listen(serverConfig.port, err => {
     if (err) {
     console.log(err);
     }
