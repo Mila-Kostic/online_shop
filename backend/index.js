@@ -20,6 +20,8 @@ app.use(bodyParser.urlencoded({ extended: false}));
 // parse app/json
 app.use(bodyParser.json());
 
+
+
 app.post('/api/login', (req, res) => {
   //console.log(req.body);
   //req is requst from frontend, res is response from backend
@@ -59,12 +61,32 @@ const foundUser = Users.findOne(reqBody,(err, data) => {
 
 app.post('/api/register', (req, res) =>{
  const reqBody = req.body;
- console.log('reg user data:', reqBody);
+ // console.log('reg user data:', reqBody);
 
-const newUser = new Users(reqBody);
-const saveNewUser = newUser.save();
+Users.findOne(reqBody, async (err, data) => {
+  console.log(data);
+  if(err){
+    const errorMsg = `Error on register user: ${err}`;
+    console.log(errorMsg);
+      res.send(errorMsg);
+      return;
+  } 
+  if(data)
+       res.send(`user already exit: ${data.username}`);
+  else {
+    console.log('else block');
+    const newUser = new Users(reqBody);
+const saveNewUser = await newUser.save();
 console.log(newUser);
- res.send('Done');
+console.log(saveNewUser);
+ //res.send('Done');
+ res.send(saveNewUser || 'User not registered.')
+
+  }
+
+});
+
+
 })
 
 
